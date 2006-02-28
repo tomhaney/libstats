@@ -39,13 +39,13 @@ class QuestionAddAction extends Action {
         }
         $stamp = strtotime($qHash['question_date']);
         if ($stamp != -1) {
-            $qHash['question_date'] = date('Ymd H:i:s', $stamp);
+            $qHash['question_date'] = date('Y-m-d H:i:s', $stamp);
         }
         else {
             $qHash['question_date'] = null;
         }
 
-        $qHash['date_added'] = date('Ymd H:i:s');
+        $qHash['date_added'] = date('Y-m-d H:i:s');
 
         // Clean up qHash; make numbers really numeric. The dirty little
         // trick: add 0 to non-null values names .*_id
