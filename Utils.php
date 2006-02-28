@@ -105,19 +105,17 @@ function mTimeFloat()
     return ((float)$usec + (float)$sec);
 }
 
-	
-function stripPort($uri, $port){
-	return str_replace(':'. $port . '/', '/', $uri);
-}
-	
 function getWelcomePage(){
-	$dirtyURI = $_SERVER['SCRIPT_URI'];
-	$cleanURI = stripPort($dirtyURI, '81'); 
-	$cleanURI = str_replace('index.php', '', $cleanURI);
+  
+  $host = $_SERVER['HTTP_HOST'];
+  if (!$host) {
+    $host = $_SERVER['SERVER_NAME'];
+  }
+	$cleanURI = str_replace('index.php', '', $_SERVER['REQUEST_URI']);
 	if(substr($cleanURI, -1) != '/'){
 		$cleanURI .= '/';
 	}
-	return $cleanURI . 'questionAddForm.do';
+	return "http://${host}${cleanURI}questionAddForm.do";
 }
 
 function getRemoteIp() {
