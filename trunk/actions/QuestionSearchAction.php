@@ -68,7 +68,7 @@ class QuestionSearchAction extends Action {
         $params[] = $fulltext;
         $params[] = $fulltext;
         $params[] = $searchString;
-        if (is_int($searchString)) {
+        if (is_numeric($searchString)) {
             $sql .= " OR question_id = ?";
             $params[] = $searchString + 0;
         }
