@@ -48,7 +48,7 @@ class QuestionEditAction extends Action {
         if ($qTime != '') {
             $stamp = strtotime($qTime);
             if ($stamp != -1) {
-                $qHash['question_date'] = date('Ymd H:i:s', $stamp);
+                $qHash['question_date'] = date('Y-m-d H:i:s', $stamp);
             }
         }
 

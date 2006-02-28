@@ -30,7 +30,7 @@ class UserFinder extends Finder {
         "SELECT cookie_login_id, user_id FROM cookie_logins WHERE cookie = ?";
         $result =  $this->db->getRow($query, array($cookieVal));
         if ($result != null) {
-            $now = date('Ymd H:i:s');
+            $now = date('Y-m-d H:i:s');
             $fArr = array('date_last_used' => $now);
             $where = "cookie_login_id = {$result['cookie_login_id']}";
             $this->db->autoExecute(
@@ -44,7 +44,7 @@ class UserFinder extends Finder {
 
     function setCookieCredentials($cookieVal, $userId) {
         $table = "cookie_logins";
-        $now = date('Ymd H:i:s');
+        $now = date('Y-m-d H:i:s');
         $fArr = array(
             'cookie' => $cookieVal,
             'user_id' => $userId+0,

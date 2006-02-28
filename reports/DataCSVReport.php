@@ -23,6 +23,12 @@ class DataCSVReport extends Report {
 		locations.location_name, 
 		DATE_FORMAT(questions.date_added, \'%c/%d/%Y %r\') AS added_stamp,
 		DATE_FORMAT(questions.date_added, \'%r\') AS question_time,
+		CONCAT(
+      DATE_FORMAT(question_date + INTERVAL 14 MINUTE, \'%l\'),
+      \':\',
+      IF((EXTRACT(MINUTE FROM question_date + INTERVAL 14 MINUTE)) < 30, \'00\', \'30\'),
+      \' \',
+      DATE_FORMAT(question_date + INTERVAL 14 MINUTE, \'%p\')) AS question_half_hour,
 		DATE_FORMAT(questions.date_added, \'%c/%d/%Y\') AS question_date,
 		DATE_FORMAT(questions.date_added, \'%W\') AS question_weekday,
 		questions.initials
