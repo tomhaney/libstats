@@ -76,6 +76,7 @@ Library:
 
 <select id="library_id" onchange = "findLocation('library_id');" name="library_id">
 	<option value="<?=$libraryID?>" selected><?=$library?></option>
+	<option value="">All Libraries</option>
 	<option value="">----------------------------</option>
 	<? foreach ($libraryList as $name) {
 			echo ('<option value="' . $name['library_id'] . '">' . $name['short_name'] . '</option>');

@@ -16,7 +16,8 @@ class DataCSVReport extends Report {
 		patron_types.patron_type, 
 		question_types.question_type, 
 		time_spent_options.time_spent, 
-		question_formats.question_format, 
+		question_formats.question_format,
+		libraries.short_name as library_name,
 		locations.location_name, 
 		DATE_FORMAT(questions.date_added, \'%c/%d/%Y %r\') AS added_stamp,
 		DATE_FORMAT(questions.question_date, \'%c/%d/%Y %r\') AS asked_at,
@@ -31,6 +32,7 @@ class DataCSVReport extends Report {
 		DATE_FORMAT(questions.question_date, \'%W\') AS question_weekday,
 		questions.initials
 		FROM questions 
+		JOIN libraries ON questions.library_id = libraries.library_id
 		JOIN locations ON questions.location_id = locations.location_id
 		JOIN question_types ON questions.question_type_id = question_types.question_type_id
 		JOIN question_formats ON questions.question_format_id = question_formats.question_format_id

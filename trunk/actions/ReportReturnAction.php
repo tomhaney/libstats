@@ -58,7 +58,7 @@ class ReportReturnAction extends Action {
 			'relation' => '=',
 			'value' => $location_id_post,
 			'type' => 'INT');
-					
+		
 		// pull together all of the search criteria	
 		$criteria = array(
 			'start_date' => $startDate,
