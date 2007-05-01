@@ -1,4 +1,12 @@
-1.0.1 - March xx, 2006
+1.0.2 - May 1, 2007
+-------------------
+
+* Added asked_at to data dump report
+* Made question_time, question_weekday, question_half_hour properly reflect
+  the question date instead of the added stamp
+* Date ranges on reports now respect times
+
+1.0.1 - June 15, 2006
 ---------------------
 
 * Fixed date bug for recent versions of MySQL
