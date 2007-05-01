@@ -1,4 +1,4 @@
-1.0.2 - May 1, 2007
+1.0.3 - May 1, 2007
 -------------------
 
 * Added asked_at to data dump report
@@ -6,6 +6,10 @@
   the question date instead of the added stamp
 * Date ranges on reports now respect times
 * Added 'All Libraries' option for reports
+
+1.0.2 - November 9, 2006
+-------------------------
+* Included .htaccess file that was missing from the 1.0.1 release
 
 1.0.1 - June 15, 2006
 ---------------------
