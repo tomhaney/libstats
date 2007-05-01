@@ -31,9 +31,9 @@ class ReportReturnAction extends Action {
 				
 	// function to sanity check dates	
 		$date1 = makeDateSane($date1);
-		$date1 = (date('Y-m-d',strtotime($date1)));
+		$date1 = (date('Y-m-d G:i:s',strtotime($date1)));
 		$date2 = makeDateSane($date2);
-		$date2 = (date('Y-m-d',strtotime($date2)));
+		$date2 = (date('Y-m-d G:i:s',strtotime($date2)));
 		
 		$startDate = array(
 			'database_field' => 'questions.question_date',

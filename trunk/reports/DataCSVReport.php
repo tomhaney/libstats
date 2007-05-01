@@ -2,9 +2,6 @@
 require_once 'Report.php';
 
 class DataCSVReport extends Report {
-    // This class is rather abstract, and its methods
-    // are all do-nothing methods.
-    // Then again, subclasses aren't that much better...
 	
 	function perform($sql, $param) {
 
@@ -22,15 +19,16 @@ class DataCSVReport extends Report {
 		question_formats.question_format, 
 		locations.location_name, 
 		DATE_FORMAT(questions.date_added, \'%c/%d/%Y %r\') AS added_stamp,
-		DATE_FORMAT(questions.date_added, \'%r\') AS question_time,
+		DATE_FORMAT(questions.question_date, \'%c/%d/%Y %r\') AS asked_at,
+		DATE_FORMAT(questions.question_date, \'%r\') AS question_time,
 		CONCAT(
       DATE_FORMAT(question_date + INTERVAL 14 MINUTE, \'%l\'),
       \':\',
       IF((EXTRACT(MINUTE FROM question_date + INTERVAL 14 MINUTE)) < 30, \'00\', \'30\'),
       \' \',
       DATE_FORMAT(question_date + INTERVAL 14 MINUTE, \'%p\')) AS question_half_hour,
-		DATE_FORMAT(questions.date_added, \'%c/%d/%Y\') AS question_date,
-		DATE_FORMAT(questions.date_added, \'%W\') AS question_weekday,
+		DATE_FORMAT(questions.question_date, \'%c/%d/%Y\') AS question_date,
+		DATE_FORMAT(questions.question_date, \'%W\') AS question_weekday,
 		questions.initials
 		FROM questions 
 		JOIN locations ON questions.location_id = locations.location_id
@@ -39,7 +37,7 @@ class DataCSVReport extends Report {
 		JOIN patron_types ON questions.patron_type_id = patron_types.patron_type_id
 		JOIN time_spent_options ON questions.time_spent_id = time_spent_options.time_spent_id '
 		. $sql;
-
+    
 		$result['data'] = $this->db->getAll($fullQuery, $param);
 
 		$result['metadata'] = array_keys($result['data'][0]);
