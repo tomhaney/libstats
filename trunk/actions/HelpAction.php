@@ -10,7 +10,7 @@ class HelpAction extends Action {
     function perform() {
     	// set display requirements
 		$result = array(
-      	'renderer' => 'template_renderer.php',
+      	'renderer' => 'template_renderer.inc',
         'pageTitle' => 'Help? ',
         'content' => 'content/admin/help.php');
 	

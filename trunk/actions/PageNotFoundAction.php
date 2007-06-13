@@ -8,7 +8,7 @@ class PageNotFoundAction extends Action {
 
     function perform() {
         $result = array();
-        $result['renderer'] = 'template_renderer.php';
+        $result['renderer'] = 'template_renderer.inc';
         $result['pageTitle'] = 'Page not found';
         $result['header'] = 'headers/header.php';
         $result['content'] = 'content/pageNotFound.php';

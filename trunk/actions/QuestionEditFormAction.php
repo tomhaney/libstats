@@ -33,7 +33,7 @@ class QuestionEditFormAction extends Action {
         if ($questionId != -1) {
             // to the edit form!
             $result = array(
-                'renderer' => 'template_renderer.php',
+                'renderer' => 'template_renderer.inc',
                 'pageTitle' => SITE_NAME .' : Edit Question',
                 'content' => 'content/questionEditForm.php');
 

@@ -23,7 +23,7 @@ class LogoutAction extends Action {
         session_destroy();
 
         $result = array(
-            'renderer' => 'template_renderer.php',
+            'renderer' => 'template_renderer.inc',
             'pageTitle' => SITE_NAME .' : Logged Out',
             'content' => 'content/loggedOut.php');
         $result['username'] = '';

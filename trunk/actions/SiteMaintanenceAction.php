@@ -8,7 +8,7 @@ class SiteMaintanenceAction extends Action {
 
     function perform() {
         $result = array();
-        $result['renderer'] = 'template_autorefresh.php';
+        $result['renderer'] = 'template_autorefresh.inc';
         $result['pageTitle'] = SITE_NAME .' : Site Maintanence';
         $result['content'] = 'content/siteMaintanence.php';
         return $result;

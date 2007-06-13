@@ -8,7 +8,7 @@ class QuestionSearchAction extends Action {
         $db = $_REQUEST['db'];
     
         $result = array(
-            'renderer' => 'template_renderer.php',
+            'renderer' => 'template_renderer.inc',
             'pageTitle' => SITE_NAME .' : Search Results',
             'content' => 'content/questionSearchResults.php');
 

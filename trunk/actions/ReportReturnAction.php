@@ -8,7 +8,7 @@ class ReportReturnAction extends Action {
     
 	// set display requirements
 	  	$result = array(
-      	'renderer' => 'template_renderer.php',
+      	'renderer' => 'template_renderer.inc',
         'pageTitle' => SITE_NAME .' : Finished Report',
         'content' => 'content/reportReturn.php');
 	
@@ -102,7 +102,7 @@ class ReportReturnAction extends Action {
 
 		// prepare $results
 		if ($report_id == 8) {
-			$result['renderer'] = 'template_csv.php';
+			$result['renderer'] = 'template_csv.inc';
         	$result['content'] = 'content/outputCSV.php';		
 		}
 		$result['report_id'] = $report_id;
