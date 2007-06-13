@@ -10,7 +10,7 @@ class LoginFormAction extends Action {
     {
         $this->saveRequestToSession();
         $result = array(
-            'renderer' => 'template_renderer.php',
+            'renderer' => 'template_renderer.inc',
             'pageTitle' => SITE_NAME .' : Please Log In',
             'header' => 'headers/header.php',
             'content' => 'content/loginForm.php');

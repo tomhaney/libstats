@@ -9,7 +9,7 @@ class AdvancedSearchFormAction extends Action {
     
 	// set display requirements
 	  $result = array(
-      	'renderer' => 'template_renderer.php',
+      	'renderer' => 'template_renderer.inc',
         'pageTitle' => SITE_NAME .' : Advanced Search',
         'content' => 'content/advancedSearchForm.php');
 		

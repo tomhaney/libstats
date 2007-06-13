@@ -13,7 +13,7 @@ class ReportAction extends Action {
     
 	// set display requirements
 	  $result = array(
-      	'renderer' => 'template_renderer.php',
+      	'renderer' => 'template_renderer.inc',
         'pageTitle' => SITE_NAME .' : Reports',
         'content' => 'content/reportForm.php');
 	

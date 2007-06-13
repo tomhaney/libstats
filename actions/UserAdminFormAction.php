@@ -7,7 +7,7 @@ class UserAdminFormAction extends Action {
     
 	// set display requirements
 	  $result = array(
-      	'renderer' => 'template_renderer.php',
+      	'renderer' => 'template_renderer.inc',
         'pageTitle' => SITE_NAME .' : User Admin',
         'content' => 'content/admin/userAdminForm.php');
 	

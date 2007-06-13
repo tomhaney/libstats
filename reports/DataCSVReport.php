@@ -43,7 +43,7 @@ class DataCSVReport extends Report {
 		$result['data'] = $this->db->getAll($fullQuery, $param);
 
 		$result['metadata'] = array_keys($result['data'][0]);
-		$result['renderer'] = "template_csv.php";
+		$result['renderer'] = "template_csv.inc";
 		return $result;	
 	}
 	

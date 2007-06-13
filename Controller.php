@@ -5,6 +5,10 @@
 require_once "Init.php";
 require_once "ControllerFunctions.php";
 
+// We do includes based on rInfo; ensure that the only way to set it
+// is internally.
+$rInfo['renderer'] = '';
+$rInfo['content'] = '';
 
 // This will be used to find out our intended action
 $opMap = buildOpMap();

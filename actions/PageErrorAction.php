@@ -22,7 +22,7 @@ class PageErrorAction extends Action {
         ob_end_clean();
 
         $result = array();
-        $result['renderer'] = 'template_renderer.php';
+        $result['renderer'] = 'template_renderer.inc';
         $result['pageTitle'] = SITE_NAME .' : Error';
         $result['content'] = 'content/pageError.php';
         return $result;

@@ -110,7 +110,7 @@ function fixRenderDefaults($hash) {
 	
 	if (!is_array($hash)) { $hash = array(); }
     if (!isset($hash['renderer'])) {
-        $hash['renderer'] = 'template_renderer.php';
+        $hash['renderer'] = 'template_renderer.inc';
     }
     if (!isset($hash['pageTitle'])) {
         $hash['pageTitle'] = SITE_NAME;

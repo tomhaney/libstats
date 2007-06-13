@@ -10,7 +10,7 @@ class QuestionAddFormAction extends Action {
         $end = 0;
 
         $result = array(
-            'renderer' => 'template_renderer.php',
+            'renderer' => 'template_renderer.inc',
             'pageTitle' => SITE_NAME.' : Add Question',
             'content' => 'content/questionAddForm.php');
             

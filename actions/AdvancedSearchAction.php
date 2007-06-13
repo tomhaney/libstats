@@ -7,7 +7,7 @@ class AdvancedSearchAction extends Action {
     
         // set display requirements
         $result = array(
-            'renderer' => 'template_renderer.php',
+            'renderer' => 'template_renderer.inc',
             'pageTitle' => SITE_NAME .' : Search Results',
             'content' => 'content/questionSearchResults.php');
             

@@ -13,7 +13,7 @@ class SetAdminTableAction extends Action {
     
 	// set display requirements
 	  $result = array(
-      	'renderer' => 'template_renderer.php',
+      	'renderer' => 'template_renderer.inc',
         'pageTitle' => SITE_NAME .' : Library Admin	',
         'content' => 'content/admin/libraryAdmin.php');
 	
