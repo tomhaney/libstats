@@ -1,4 +1,4 @@
-#summary How to install
+#summary How to install Libstats
 #labels Featured,Phase-Deploy
 
 == Requirements ==
