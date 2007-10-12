@@ -1,0 +1,45 @@
+#summary How to install
+#labels Featured,Phase-Deploy
+
+== Requirements ==
+
+You may be able to get around these, but your life will be way easier if you're running:
+  * [http://www.php.net/ PHP 5.x]
+  * [http://www.mysql.org/downloads/mysql/5.0.html#downloads MySQL 5.x]
+  * [http://pear.php.net/package/DB Pear::DB]
+  * [http://httpd.apache.org/ Apache] with [http://httpd.apache.org/docs/2.0/mod/mod_rewrite.html mod_rewrite]
+
+== Installation Instructions ==
+
+  # *Unzip the files*
+    Save all the files somewhere so you'll be able to see them with a web browser. I'll call the file location `libroot`.
+  # *Set up the database*
+    This will prepare the database server to store all of your menu values and questions. You'll also want to set up a special database user, so that if there's a bug in this software, hackers won't be able to do as much damage.
+    #  Create the database
+      If you're using a graphical utility, use its Create Database feature. The SQL you'll want is:
+      {{{
+CREATE DATABASE libstats;
+      }}}
+    # Create the database user
+      You'll probably want to make sure only your web server can do things to the database, and also make sure that the statistics software can't do anythng nefarious. The user will need SELECT, UPDATE, INSERT, and DELETE privileges. The SQL to do this command is:
+      {{{
+GRANT SELECT, UPDATE, DELETE, INSERT ON libstats.* TO libuser@'webserver.example.edu' IDENTIFIED BY 'libpass';
+      }}}
+    # Create tables and data
+      Import the libstats.sql file to your database of choice. The way you'll do this depends on the program that you're using to make changes. With the command-line program:
+      {{{
+mysql -uroot -p libstats < libstats.sql
+      }}}
+  # *Fix the Init.php file*
+    Use a text editor to edit the Init.php file, and change the values of `$dbUser`, `$dbPass`, `$dbHost`, and `$dbName` to the values you used when creating the database and granting user access.
+  # *Set up URL rewriting*
+    The stats program uses a feature called URL rewriting to help the programmers make our PHP code easier to debug. Essentially, it needs to send everyone looking for a page ending in ".do" to Controller.php.
+    In apache, it should work if you edit .htaccess and:
+      * Change `libstats` to the place your installation will live
+      * Remove the #s from the beginning of the lines
+  # *Start using it!*
+    Go to the new database in your web browser! Your admin logon has been set up; the login is:
+    Username: `admin`
+    Password: `changeme`
+
+At this point, you should be up and running. You should change the admin password as soon as you log in, so other people can't get in and mess with stuff. From the admin interface, create a normal user, change the values for the pulldown menus, and start logging stats! 
