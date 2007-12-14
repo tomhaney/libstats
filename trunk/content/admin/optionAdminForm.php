@@ -27,12 +27,12 @@ var bridgeTableData = new Array();
 		$item = $everything[$i];
 ?>
 	currElement = new Array();
-	currElement["parent_pk"] = <?=$item[$parent_pk]?>;
-	currElement["descriptor"] = "<?=$item[$descriptor]?>";
-	currElement["parent_list"] = <?=$item['parent_list']?>;
-	currElement["description"] = "<?=$item['description']?>";
-	currElement["examples"] = "<?=mysql_real_escape_string($item['examples'])?>";
-	bridgeTableData[<?=$item[$parent_pk]?>] = currElement;
+	currElement["parent_pk"] = <?php echo($item[$parent_pk]); ?>;
+	currElement["descriptor"] = "<?php echo($item[$descriptor]); ?>";
+	currElement["parent_list"] = <?php echo($item['parent_list']); ?>;
+	currElement["description"] = "<?php echo($item['description']); ?>";
+	currElement["examples"] = "<?php echo(mysql_real_escape_string($item['examples'])); ?>";
+	bridgeTableData[<?php echo($item[$parent_pk]); ?>] = currElement;
 
 <?php
 }
@@ -81,25 +81,25 @@ function newOption() {
 </script>
 <div id="adminForm">
 	<div id="adminInput">
-		<form action="optionAdmin.do" method="get">
+		<form action="optionAdminForm.do" method="get">
 			<h4>Select a Table:</h4>
 			<select id="parent_table" name="table" id="table">
-				<option value="<?=$parent_table_data['parent_table']?>" selected><?=$parent_table_data['display_name']?></option>
+				<option value="<?php echo($parent_table_data['parent_table']); ?>" selected><?php echo($parent_table_data['display_name']); ?></option>
 				<option value="">----------------------------</option>
-				<? foreach ($adminTableList as $table) {
+				<?php foreach ($adminTableList as $table) {
 					echo ('<option value="' . $table['parent_table'] . '">' . $table['display_name'] . '</option>');
 				}?>
 			</select>
 			<input type="submit" value="Go"/>
-			<a href="<?= 'libraryAdminForm.do?table=' . $target?>">Return to Admin</a>
+			<a href="<?php echo('libraryAdminForm.do?table=' . $target); ?>">Return to Admin</a>
 		</form>
 	</div>
 	<div id="adminWrapper">
 		<div id="optionBox">
-			<h3><?=$parent_table_data['display_name']?></h3>
+			<h3><?php echo($parent_table_data['display_name']); ?></h3>
 			<h4>Select Option:</h4>
 			<select id="all_locs" name="all" size="12" onchange = "echoOption('all_locs');">
-			<? foreach ($parentTableList as $list) {
+			<?php foreach ($parentTableList as $list) {
 				echo ('<option value="' . $list[$parent_pk] . '">' . $list[$descriptor] . '</option>');
 			} ?>
 			</select><br />
@@ -113,7 +113,7 @@ function newOption() {
 				<h4>Name:</h4><input type="text" name="option" id="name" />
 				<h4>Parent Class:</h4>
 				<select id="all_options" name="parent_pk"/>
-				<? 
+				<?php
 				echo ('<option value="0" selected>None</option>');
 				echo ('<option value="">----------------------------</option>');
 				foreach ($parentTableList as $list) {
@@ -124,10 +124,10 @@ function newOption() {
 				<textarea rows="5" cols="50" name="description" id="description"></textarea>
 				<h4>Examples:</h4>
 				<textarea rows="5" cols="50" name="examples" id="examples"/></textarea>
-				<input type="hidden" name="parent_finder" value="<?=$parent_table_data['parent_finder']?>"/>
-				<input type="hidden" name="parent_table" value="<?=$parent_table_data['parent_table']?>"/>
-				<input type="hidden" name="library" value="<?=$library ?>"/>
-				<input type="hidden" name="library_id" value="<?=$library_id ?>"/>
+				<input type="hidden" name="parent_finder" value="<?php echo($parent_table_data['parent_finder']); ?>"/>
+				<input type="hidden" name="parent_table" value="<?php echo($parent_table_data['parent_table']); ?>"/>
+				<input type="hidden" name="library" value="<?php echo($library ); ?>"/>
+				<input type="hidden" name="library_id" value="<?php echo($library_id ); ?>"/>
 			<div id="adminButtons2">
 				<input type="submit" name="save" value="Save" />
 			</div>

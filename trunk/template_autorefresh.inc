@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title><?=$rInfo['pageTitle']?></title>
+    <title><?php echo($rInfo['pageTitle']); ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <meta http-equiv="Cache-Control" content="no-cache">
     <meta http-equiv="Refresh" content="15">
@@ -19,7 +19,7 @@
 </head>
 <body>
 <!-- This file is used to reload the page during maintanence -->
-<? require_once 'DisplayFunctions.php'; ?>
+<?php require_once 'DisplayFunctions.php'; ?>
 <div id = "wrapper">
 <?php include $rInfo['content'];?>
 </div>

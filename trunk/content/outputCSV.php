@@ -1,5 +1,4 @@
-<?
-$header_row = $rInfo['reportResults']['metadata'];
+<?php $header_row = $rInfo['reportResults']['metadata'];
 
 echo implode(",", $header_row)."\n";
 

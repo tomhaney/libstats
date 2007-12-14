@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title><?=$rInfo['pageTitle']?></title>
+    <title><?php echo($rInfo['pageTitle']); ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <meta http-equiv="Cache-Control" content="no-cache">
     <link rel= "stylesheet" href= "style/libstats.css" type= "text/css" media="screen">
@@ -17,7 +17,7 @@
 
 </head>
 <body>
-<? require_once 'DisplayFunctions.php'; ?>
+<?php require_once 'DisplayFunctions.php'; ?>
 <div id = "wrapper">
 <?php include $rInfo['content'];?>
 </div>

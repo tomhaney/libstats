@@ -1,4 +1,4 @@
-<? include('mainHeader.php');
+<?php include('mainHeader.php');
 require_once('DisplayFunctions.php');
 
 $user = $rInfo['user'];
@@ -17,9 +17,9 @@ var jsloc = new Array();
 foreach($locationList as $Location) {
 ?>
 	var currloc = new Array();
-	currloc["library_id"]= "<?=$Location['library_id']?>";
-	currloc["location_id"]= "<?=$Location['location_id']?>";
-	currloc["location_name"]= "<?=$Location['location_name']?>";
+	currloc["library_id"]= "<?php echo($Location['library_id']); ?>";
+	currloc["location_id"]= "<?php echo($Location['location_id']); ?>";
+	currloc["location_name"]= "<?php echo($Location['location_name']); ?>";
 	jsloc[jsloc.length] = currloc;
 <?php
 }
@@ -85,7 +85,7 @@ function select(id, value) {
 <select id="location_id" name="location_id">
 	<option value="*" selected>All Locations</option>
 	<option value="">----------------------------</option>
-	<? foreach ($locationList as $list) {
+	<?php foreach ($locationList as $list) {
 			echo ('<option value="' . $list['location_id'] . '">' . $list['location_name'] . '</option>');
 		}?>	
 </select>
@@ -136,4 +136,4 @@ select('location_id', <?php echo $_GET['location_id'] ?>);
 <?php } ?>
 </script>
 
-<? include 'footer.php'; ?>
+<?php include 'footer.php'; ?>

@@ -1,5 +1,4 @@
-<?
-include('content/helpHeader.php');
+<?php include('content/helpHeader.php');
 $helpArray = ($rInfo['helpList']);
 echo('<h3>' . $helpArray['help_name'] . '</h3>---' . $helpArray['description'] . '<br />');
 

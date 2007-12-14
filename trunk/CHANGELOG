@@ -1,3 +1,12 @@
+1.0.5 - December 14, 2007
+-------------------------
+
+* Removed all short tags -- should now work with short_tags off. Stupid PHP.
+* Fixed bug in which one couldn't change to a new table in OptionAdminForm
+* Added $db to $_REQUEST before checking for $db->isError() -- to aid in 
+  debugging.
+* Added DirectoryIndex index.php to .htaccess
+
 1.0.4 - June 13, 2007
 ---------------------
 

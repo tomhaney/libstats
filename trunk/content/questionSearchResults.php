@@ -1,5 +1,5 @@
-<? include('mainHeader.php'); ?>
-<? 
+<?php include('mainHeader.php'); ?>
+<?php
 $testfoo = strrchr($rInfo['origin'], '/');
 $measuretestfoo = strlen($testfoo);
 $killfoo = substr($testfoo, 1, $measuretestfoo);
@@ -62,4 +62,4 @@ echo getPageNav(
     $rInfo['criteria_array']);
 
 ?>
-<? include 'footer.php'; ?>
+<?php include 'footer.php'; ?>

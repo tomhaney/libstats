@@ -16,10 +16,10 @@ var bridgeTableData = new Array();
 		$item = $everything[$i];
 ?>
 	currElement = new Array();
-	currElement["library_id"] = <?=$item['library_id']?>;
-	currElement["short_name"] = "<?=$item['short_name']?>";
-	currElement["full_name"] = "<?=$item['full_name']?>";
-	bridgeTableData[<?=$item['library_id']?>] = currElement;
+	currElement["library_id"] = <?php echo($item['library_id']); ?>;
+	currElement["short_name"] = "<?php echo($item['short_name']); ?>";
+	currElement["full_name"] = "<?php echo($item['full_name']); ?>";
+	bridgeTableData[<?php echo($item['library_id']); ?>] = currElement;
 
 <?php
 }
@@ -62,14 +62,14 @@ function newOption() {
 </script>
 <div id="adminForm">
 	<div id="adminInput">
-		<a href="<?= 'libraryAdminForm.do'?>">Return to Admin</a>
+		<a href="<?php echo( 'libraryAdminForm.do'); ?>">Return to Admin</a>
 	</div>
 	<div id="adminWrapper">
 		<div id="optionBox">
-			<h3><?=$parent_table_data['display_name']?></h3>
+			<h3><?php echo($parent_table_data['display_name']); ?></h3>
 			<h4>Select Library:</h4>
 			<select id="all_locs" name="all" size="12" onchange = "echoOption('all_locs');">
-			<? foreach ($everything as $list) {
+			<?php foreach ($everything as $list) {
 				echo ('<option value="' . $list[library_id] . '">' . $list[short_name] . '</option>');
 			} ?>
 			</select><br />
@@ -83,10 +83,10 @@ function newOption() {
 				<h4>Short Name:</h4><input type="text" size="67" name="shortname" id="shortname" />
 				<h4>Full Name:</h4>
 				<textarea rows="2" cols="50" name="fullname" id="fullname"></textarea>
-				<input type="hidden" name="parent_finder" value="<?=$parent_table_data['parent_finder']?>"/>
-				<input type="hidden" name="parent_table" value="<?=$parent_table_data['parent_table']?>"/>
-				<input type="hidden" name="library" value="<?=$library ?>"/>
-				<input type="hidden" name="library_id" value="<?=$library_id ?>"/>
+				<input type="hidden" name="parent_finder" value="<?php echo($parent_table_data['parent_finder']); ?>"/>
+				<input type="hidden" name="parent_table" value="<?php echo($parent_table_data['parent_table']); ?>"/>
+				<input type="hidden" name="library" value="<?php echo($library ); ?>"/>
+				<input type="hidden" name="library_id" value="<?php echo($library_id ); ?>"/>
 			<div id="adminButtons2">
 				<input type="submit" name="save" value="Save" />
 			</div>

@@ -1,10 +1,10 @@
-<? include('noAuthHeader.php'); ?>
+<?php include('noAuthHeader.php'); ?>
 
 <form action = "login.do" method = "post" name = "loginForm" id = "loginForm">
 <div>
     <label for = "username">Username</label>
     <input type = "text" name = "username" id = "username"
-        value = "<?=$rInfo['username']?>">
+        value = "<?php echo($rInfo['username']); ?>">
 </div>
 <div>
     <label for = "password">Password</label>

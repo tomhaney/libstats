@@ -1,5 +1,5 @@
-<? include('mainHeader.php');?>
-<? 
+<?php include('mainHeader.php');?>
+<?php
 $reportQuestionCount = $rInfo['reportQuestionCount'];
 $numberReportQuestionCount = ($reportQuestionCount + 0);
 $dateStart = $rInfo['date1'];
@@ -246,4 +246,4 @@ elseif ($_REQUEST['report_id'] == 8) {
 <div id="help">
 	<a href="help.do?advice=6" class="helpLink" onclick = "showHelp(this.href); return false;">Import Data to Excel</a>
 </div>
-<? include 'footer.php'; ?>
+<?php include 'footer.php'; ?>
