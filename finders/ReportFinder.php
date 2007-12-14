@@ -1,5 +1,4 @@
-<?
-require_once 'Finder.php';
+<?php require_once 'Finder.php';
 class ReportFinder extends Finder {
     var $selQueryJoin = 
     "SELECT *

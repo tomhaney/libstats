@@ -18,11 +18,11 @@ require_once('DisplayFunctions.php');
                 <option value = "new">New user</option>
                 <option value = "new"> -- </option>
             <?php foreach ($rInfo['userList'] as $curUser) { ?>
-                <option value = "<?= $curUser['user_id'] ?>"
+                <option value = "<?php echo( $curUser['user_id'] ); ?>"
                     <?php if ($curUser['user_id']==$rInfo['selUser']['user_id'])
                         echo 'selected = "selected"';
                     ?> >
-                    <?= $curUser['username'] ?>
+                    <?php echo( $curUser['username'] ); ?>
                 </option>
             <?php } ?>
             </select>
@@ -48,11 +48,11 @@ require_once('DisplayFunctions.php');
 	   ?>
 	   <form action = "userEdit.do" method = "post">
 	       <input type = "hidden" name = "user_id" 
-	           value = "<?=$selUser['user_id']?>" />
+	           value = "<?php echo($selUser['user_id']); ?>" />
 	       <div>
 	           <label for = "username">Username</label> 
 	           <input type = "text" name = "username" id = "username" 
-	               value = "<?=$selUser['username']?>" />
+	               value = "<?php echo($selUser['username']); ?>" />
 	       </div>
 	       <div>
 	           <label for = "password">Password</label> 
@@ -62,7 +62,7 @@ require_once('DisplayFunctions.php');
 	       </div>
 	       <div>
 	           <label for = "library_id">Library</label> 
-	            <? echo getSelectPulldown(
+	            <?php echo getSelectPulldown(
                     "library_id", 
                     $rInfo['libraryList'],
                     'library_id',

@@ -1,17 +1,17 @@
-<? include "noAuthHeader.php"; ?>
+<?php include "noAuthHeader.php"; ?>
 
 <img src = "images/kitten.jpg" class = "leftFloater"/> 
 <h2>I messed up and I'm sorry.</h2>
 
-<p>Most likely, you're seeing this message because <?=DEV_NAME?> made a 
+<p>Most likely, you're seeing this message because <?php echo(DEV_NAME); ?> made a 
 programming mistake somewhere. Rest assured that the server has already 
-sent <?=DEV_3OPN?> 
-a message detailing the error of <?=DEV_PPN?> ways in far more detail
-than you would believe, and that <?=DEV_3SPN?>'ll get on fixing it as soon 
+sent <?php echo(DEV_3OPN); ?> 
+a message detailing the error of <?php echo(DEV_PPN); ?> ways in far more detail
+than you would believe, and that <?php echo(DEV_3SPN); ?>'ll get on fixing it as soon 
 as possible.
 </p>
-<p>If you want, feel free to <a href = "mailto:<?=DEV_EMAIL?>">
-send <?=DEV_3OPN?> an email</a>, especially if this is the first time you've 
+<p>If you want, feel free to <a href = "mailto:<?php echo(DEV_EMAIL); ?>">
+send <?php echo(DEV_3OPN); ?> an email</a>, especially if this is the first time you've 
 tried something or if there's just been an upgrade. And if you're feeling 
 adventurous, you're more than welcome to <a href = "questionAddForm.do">
 re-enter the database</a>, where the problem could already be fixed. 

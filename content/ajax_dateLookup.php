@@ -4,10 +4,10 @@ $myDate = grwd('date');
 $goodDate = makeDateSane($myDate);
 $parsed = (strtotime($goodDate) > 0) + 0;
 ?>
-var el_id = '<?=$_GET['id']?>';
-var unparsedDate = '<?=$myDate?>';
-var goodDate = '<?=$goodDate?>';
-var parsed = <?=$parsed?>;
+var el_id = '<?php echo($_GET['id']); ?>';
+var unparsedDate = '<?php echo($myDate); ?>';
+var goodDate = '<?php echo($goodDate); ?>';
+var parsed = <?php echo($parsed); ?>;
 
 if (goodDate == '') {
     $(el_id).style.backgroundColor = '#fff';

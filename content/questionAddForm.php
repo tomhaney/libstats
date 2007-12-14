@@ -1,60 +1,60 @@
-<? include('mainHeader.php'); ?>
+<?php include('mainHeader.php'); ?>
 <div>
 <form name = "questionForm" method = "post" action = "addQuestion.do"
     id = "qForm">
 
-<? $optionFunction = $rInfo['optionFunction']; ?>
+<?php $optionFunction = $rInfo['optionFunction']; ?>
 
 <div id = "toolbar">
 <div class = "inputBox">
     <h5><a href="help.do?advice=1" class="helpLink=">Location</a></h5>
-    <?=$optionFunction(
+    <?php echo($optionFunction(
         'location', 
         $rInfo['locationOpts'], 
         'location_id',
         'location_name',
-        $rInfo['locationId'], 5)?>
+        $rInfo['locationId'], 5)); ?>
 </div>
 <div class = "inputBox">
     <h5><a href="help.do?advice=2" class="helpLink=">Patron Type</a></h5>
-    <?=$optionFunction(
+    <?php echo($optionFunction(
         'patronType',
         $rInfo['patronTypeOpts'],
         'patron_type_id',
         'patron_type', 
-        $rInfo['lastPatronType'], 5)?>
+        $rInfo['lastPatronType'], 5)); ?>
 </div>
 <div class = "inputBox">
     <h5><a href="help.do?advice=3" class="helpLink=">Question Type</a></h5>
-    <?=$optionFunction(
+    <?php echo($optionFunction(
         'questionType',
         $rInfo['questionTypeOpts'],
         'question_type_id',
         'question_type', 
-        $rInfo['lastQuestionType'], 5)?>
+        $rInfo['lastQuestionType'], 5)); ?>
 </div>
 <div class = "inputBox">
     <h5>Time Spent</h5>
-    <?=$optionFunction(
+    <?php echo($optionFunction(
         'timeSpent',
         $rInfo['timeSpentOpts'],
         'time_spent_id',
         'time_spent', 
-        $rInfo['lastTimeSpent'], 5)?>
+        $rInfo['lastTimeSpent'], 5)); ?>
 </div>
 <div class = "inputBox">
     <h5>Question Format</h5>
-    <?=$optionFunction(
+    <?php echo($optionFunction(
         'questionFormat',
         $rInfo['questionFormatOpts'],
         'question_format_id',
         'question_format', 
-        $rInfo['lastQuestionFormat'], 5)?>
+        $rInfo['lastQuestionFormat'], 5)); ?>
 </div>
 <div class = "inputBox">
     <h5>Initials</h5>
     <input type = "text" size = "5" name = "initials" id = "initials" 
-        value = "<?=$rInfo['lastInitials']?>" >
+        value = "<?php echo($rInfo['lastInitials']); ?>" >
 </div>
 <div class = "inputBox">
     <h5><a href="help.do?advice=5" class="helpLink=">Backdate</a></h5>
@@ -74,7 +74,7 @@
 <div>
 <input type = "submit" name = "saveButton" value = "Save Question / Answer" />
 <?php if ($rInfo['lastAdded'] != null) { ?>
-Last question added from this computer at <?=$rInfo['lastAdded']?>
+Last question added from this computer at <?php echo($rInfo['lastAdded']); ?>
 <?php } ?>
 </div>
 </form>
@@ -141,4 +141,4 @@ Layout:
 <input type = "submit" value ="Go">
 </div>
 </form>
-<? include 'footer.php'; ?>
+<?php include 'footer.php'; ?>

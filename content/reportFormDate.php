@@ -1,4 +1,4 @@
-<? include('mainHeader.php');
+<?php include('mainHeader.php');
 $user = $rInfo['user'];
 $currentReport = $_GET["report_id"];
 $origin = $rInfo['origin'];
@@ -15,9 +15,9 @@ var jsloc = new Array();
 foreach($locationList as $Location) {
 ?>
 	var currloc = new Array();
-	currloc["library_id"]= "<?=$Location['library_id']?>";
-	currloc["location_id"]= "<?=$Location['location_id']?>";
-	currloc["location_name"]= "<?=$Location['location_name']?>";
+	currloc["library_id"]= "<?php echo($Location['library_id']); ?>";
+	currloc["location_id"]= "<?php echo($Location['location_id']); ?>";
+	currloc["location_name"]= "<?php echo($Location['location_name']); ?>";
 	jsloc[jsloc.length] = currloc;
 <?php
 }
@@ -64,8 +64,8 @@ function findLocation(libraryElementName) {
 
 <div class="reports">
     <div class="report">
-        <h3><?=$report['report_name']?></h3>
-        <div id="reportDescription"><?=$report['report_description']?></div>
+        <h3><?php echo($report['report_name']); ?></h3>
+        <div id="reportDescription"><?php echo($report['report_description']); ?></div>
     </div>
 </div>
 <form name="dates" method="get" action="reportReturn.do" id="qForm">
@@ -75,18 +75,18 @@ End Date: <input type="text" name="date2" id = "date2" class = "validDate" /><br
 Library:
 
 <select id="library_id" onchange = "findLocation('library_id');" name="library_id">
-	<option value="<?=$libraryID?>" selected><?=$library?></option>
+	<option value="<?php echo($libraryID); ?>" selected><?php echo($library); ?></option>
 	<option value="">All Libraries</option>
 	<option value="">----------------------------</option>
-	<? foreach ($libraryList as $name) {
+	<?php foreach ($libraryList as $name) {
 			echo ('<option value="' . $name['library_id'] . '">' . $name['short_name'] . '</option>');
 		}?>
 </select>
-<?= "Location: "?>
+<?php echo( "Location: "); ?>
 <select id="location_id" name="location_id">
 	<option value="*" selected>All Locations</option>
 	<option value="">----------------------------</option>
-	<? foreach ($locationList as $list) {
+	<?php foreach ($locationList as $list) {
 			echo ('<option value="' . $list['location_id'] . '">' . $list['location_name'] . '</option>');
 		}?>	
 </select>
@@ -95,8 +95,8 @@ Library:
 	bodyElement.onload = findLocation('library_id');
 </script>
 <br />
-<input type="hidden" name="report_id" value="<?=$report['report_id']?>"/>
-<input type="hidden" name="report_name" value="<?=$report['report_name']?>"/>
+<input type="hidden" name="report_id" value="<?php echo($report['report_id']); ?>"/>
+<input type="hidden" name="report_name" value="<?php echo($report['report_name']); ?>"/>
 <input type="submit" value="Run Report"/>
 </div>
 </form>
@@ -109,4 +109,4 @@ fixInitials();
 fixQuestions();
 </script>
 
-<? include 'footer.php'; ?>
+<?php include 'footer.php'; ?>
