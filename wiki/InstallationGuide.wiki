@@ -27,7 +27,8 @@ Let’s take a look at the necessary configurations for each one of these.
 
 *Apache*
 
-  * On your web root find your Apache config folder (apache\config). Find the httpd.conf file and hope it in notepad or whatever text editor you use. In the list of LoadModule find
+  * On your web root find your Apache config folder (apache\config). Find the httpd.conf file and hope it in notepad or whatever text editor you use. In the list of LoadModules
+ find
 {{{
 LoadModule rewrite_module modules/mod_rewrite.so
 }}}
