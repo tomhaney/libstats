@@ -57,8 +57,11 @@ class Finder {
 		) {  
         
 		// Just add it... it should be easy ;-)
-		$field_values = array(
-			$columns[0] => '',
+		/* 01-05-2009
+		removed 	$columns[0] => '' from the array below.  Causes a problem passing
+		a NULL value to an auto increment field.
+		*/
+      $field_values = array(
 			$columns[1] => $name,
 			$columns[2] => $parent_pk,
 			$columns[3] => $description,
@@ -123,11 +126,14 @@ class Finder {
 		$option_pk, //$columns[0]
 		$library_id //$columns[1]
 		) {
-		
+      
+      /* 01-05-2009
+		removed 	$columns[2] => '' from the array below.  Causes a problem passing
+		a NULL value to an auto increment field.
+		*/
 		$field_values = array(
 			$columns[0] => $option_pk,
 			$columns[1] => $library_id,
-			$columns[2] => ''
 		);
 		
 		return $this->db->autoExecute(

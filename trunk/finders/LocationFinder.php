@@ -140,11 +140,14 @@ class LocationFinder extends Finder
 	function addBridgeItem($location_id, $library_id, $location_name) {
 		//differs from other Finder classes because 'location_name' must be populated	
 		$table = 'library_locations';
+		/* 01-05-2009
+		removed 	'list_order' => '' from the array below.  Causes a problem passing
+		a NULL value to an auto increment field.
+		*/
 		$field_values = array(
 			'location_id' => $location_id,
 			'library_id' => $library_id,
 			'location_name' => $location_name,
-			'list_order' => ''
 		);
 		
 		return $this->db->autoExecute(
