@@ -1,4 +1,4 @@
-#FAQ and other important tips
+#summary FAQ and other important tips
 
 <wiki:toc max_depth="2" />
 
