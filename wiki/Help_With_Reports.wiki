@@ -1,5 +1,5 @@
+#summary Brief guide for providing tips and assistance for creating new reports in LibStats.
 #labels Featured
-#Brief guide for providing tips and assistance for creating new reports in LibStats.
 
 = Introduction =
 
