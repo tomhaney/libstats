@@ -1,0 +1,38 @@
+#FAQ and other important tips
+
+<wiki:toc max_depth="2" />
+
+= FAQs and other tips  =
+
+== Why is libstats automatically logging me in and redirecting to the Add Question page? ==
+
+In /Init.php, there is an auto admin login setting.
+{{{
+define('AUTO_ADMIN_LOGON', false);
+}}}
+false, requires a login; true automatically logs the admin in. Change this to false and users must log in then.
+
+== libstats is unable to connect to the database on install. It takes forever to load and then get Library Stats: Error "I messed up and I'm sorry." ==
+Depending on the host name of the server, the SQL statement assigning privileges to the account my need the hostname changed to "localhost":
+{{{
+GRANT SELECT, UPDATE, DELETE, INSERT ON libstats.* TO libstats_account_name@'localhost' IDENTIFIED
+BY 'libstats_account_name_password';
+}}}
+
+== MySQL is reporting corrupt tables, what do I do? ==
+Errors messages such as the following are a problem with MySQL, not libstats:
+
+ Apr 13 18:20:17 [server name] /etc/mysql/debian-start[5263]: WARNING: mysqlcheck has found corrupt tables Mar 13 18:20:17 [server name] /etc/mysql/debian-start[5263]: libstats.cookie_logins Mar 13 18:20:17 [server name] /etc/mysql/debian-start[5263]: warning  : 1 client is using or hasn't closed the table properly Mar 13 18:20:17 [server name] /etc/mysql/debian-start[5263]: libstats.questions Mar 13 18:20:17 [server name] /etc/mysql/debian-start[5263]: warning  : 1 client is using or hasn't closed the table properly
+
+
+One way to resolve the above error is to run the following command:
+{{{
+mysqlcheck --repair --user=username --password=password databasename
+}}}
+
+For more information about mysqlcheck, please refer to http://dev.mysql.com/doc/refman/5.0/en/mysqlcheck.html. 
+
+As always, *please backup the database BEFORE running mysqlcheck*.
+
+== In reporting, is there a way to group certain areas under a category? ==
+In the question_types table there is a column called parent_list. This column can be used to group question types into similar categories. The parent_list column also is in question_formats, patron_types and locations tables. When you create a report, pull back the parent_list and manage it that way. To organize and assign rows to the parent_list manually add them to the database or use a web face administration interface, such as phpMyAdmin.
