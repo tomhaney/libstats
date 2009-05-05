@@ -6,13 +6,12 @@ require_once 'Action.php';
  */
 
 class LoginAction extends Action {
-
 	
     function perform() {
         $userFact = new UserFinder($_REQUEST['db']);
         $username = gpwd('username');
         $password = gpwd('password');
-        $userId = $userFact->authenticate($username, $password);
+        $userId = $userFact->authenticate($username, md5($password));
         if (!($userId === null)) {
             $_SESSION['loggedIn'] = true;
             $_SESSION['userId'] = $userId;
