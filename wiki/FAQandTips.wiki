@@ -22,7 +22,7 @@ BY 'libstats_account_name_password';
 == MySQL is reporting corrupt tables, what do I do? ==
 Errors messages such as the following are a problem with MySQL, not libstats:
 
- Apr 13 18:20:17 [server name] /etc/mysql/debian-start[5263]: WARNING: mysqlcheck has found corrupt tables Mar 13 18:20:17 [server name] /etc/mysql/debian-start[5263]: libstats.cookie_logins Mar 13 18:20:17 [server name] /etc/mysql/debian-start[5263]: warning  : 1 client is using or hasn't closed the table properly Mar 13 18:20:17 [server name] /etc/mysql/debian-start[5263]: libstats.questions Mar 13 18:20:17 [server name] /etc/mysql/debian-start[5263]: warning  : 1 client is using or hasn't closed the table properly
+ Apr 13 18:20:17 `[server name]` /etc/mysql/debian-start`[5263]`: WARNING: mysqlcheck has found corrupt tables Mar 13 18:20:17 `[server name]` /etc/mysql/debian-start`[5263]`: libstats.cookie_logins Mar 13 18:20:17 `[server name]` /etc/mysql/debian-start`[5263]`: warning  : 1 client is using or hasn't closed the table properly Mar 13 18:20:17 `[server name]` /etc/mysql/debian-start`[5263]`: libstats.questions Mar 13 18:20:17 `[server name]` /etc/mysql/debian-start`[5263]`: warning  : 1 client is using or hasn't closed the table properly
 
 
 One way to resolve the above error is to run the following command:
@@ -48,7 +48,7 @@ SHOW VARIABLES like 'ft_min_word_len';
 To change the ft_min_word_len value:
 
  # Locate the my.cnf in Linux or my.ini for Windows.
- # Open my.[cnf/ini]
+ # Open my.`[cnf/ini]`
  # In the `[mysqld]` stanza, add the following:
 {{{
 ##
