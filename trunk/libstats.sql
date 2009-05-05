@@ -352,7 +352,7 @@ INSERT INTO time_spent_options (examples, description, parent_list, time_spent_i
 CREATE TABLE users (
   user_id int(11) NOT NULL auto_increment,
   username varchar(50) NOT NULL default '',
-  password varchar(50) binary NOT NULL default '',
+  password varchar(32) binary NOT NULL default '',
   library_id int(11) NOT NULL default '0',
   active tinyint(2) NOT NULL default '1',
   admin tinyint(2) NOT NULL default '0',
@@ -364,5 +364,5 @@ CREATE TABLE users (
 -- Dumping data for table 'users'
 --
 
-INSERT INTO users (user_id, username, password, library_id, active, admin) VALUES (1,'admin','changeme',1,1,1);
+INSERT INTO users (user_id, username, password, library_id, active, admin) VALUES (1,'admin', md5('changeme'),1,1,1);
 
