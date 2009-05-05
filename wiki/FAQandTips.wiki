@@ -80,4 +80,6 @@ ft_min_word_len=3
 }}}
  # Once restarted, the index will need rebuilt. Run the following SQL command to rebuild the index:
 {{{
+REPAIR TABLE questions QUICK;
 }}}
+*NOTE* If query cache is enabled, this QUICK method may not work.
