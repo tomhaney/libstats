@@ -13,15 +13,6 @@ class ReportFinder extends Finder {
 		return $result;
 	}
 
-	function getReportList() {
-		$fullQuery = $this->selQueryJoin."
-        ORDER BY
-            report_name";
-	
-        $result =  $this->db->getAll($fullQuery);
-        return $result;
-	}
-
 	// using the below function for percentages EL
 	function getReportQuestionCount($sql, $param) {
 		

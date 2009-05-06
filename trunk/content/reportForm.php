@@ -1,16 +1,26 @@
-<?php include('mainHeader.php'); ?>
-<h3>Please choose from these <?php echo $rInfo['reportCount'] ?> reports.</h3>
 <?php
-$reports = $rInfo['reportList'];
-for ($i = 1; $i <= count($reports); $i++) {
-    $report = $reports[$i-1]
+include('mainHeader.php');
+
+// get all the infomation about the various reports to display in a list
+$report_handle = new Report();
+$report_list = $report_handle->get();
+sort($report_list);
+?>
+
+<h3>Please choose from these <?php echo count($report_list); ?> reports.</h3>
+<?php
+// loop through list and display all reports
+for ($i = 0; $i < count($report_list); $i++) {
+  $temp_report = new  $report_list[$i];
+  $temp_info = $temp_report->info();
 ?>
 <div class="report">
-    <h3><?php echo($i); ?> <a href="reportAddDate.do?&amp;report_id=<?php echo($report["report_id"]); ?>"/><?php echo($report["report_name"]); ?></a></h3>
-    <div><?php echo($report["report_description"]); ?></div>
-
+  <h3><?php echo($i + 1); ?>) <a href="reportAddDate.do?&amp;report_id=<?php echo
+  $report_list[$i]; ?>"/><?php echo $temp_info["name"]; ?></a></h3>
+  <div><?php echo $temp_info["desc"]; ?></div>
 </div>
-<?php } ?>
-
-<?php include 'footer.php'; ?>
+<?php
+}
+include 'footer.php';
+?>
 

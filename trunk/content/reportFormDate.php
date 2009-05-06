@@ -64,8 +64,8 @@ function findLocation(libraryElementName) {
 
 <div class="reports">
     <div class="report">
-        <h3><?php echo($report['report_name']); ?></h3>
-        <div id="reportDescription"><?php echo($report['report_description']); ?></div>
+				<h3><?php echo($rInfo['reportList']['name']); ?></h3>
+        <div id="reportDescription"><?php echo($rInfo['reportList']['desc']); ?></div>
     </div>
 </div>
 <form name="dates" method="get" action="reportReturn.do" id="qForm">
@@ -95,8 +95,7 @@ Library:
 	bodyElement.onload = findLocation('library_id');
 </script>
 <br />
-<input type="hidden" name="report_id" value="<?php echo($report['report_id']); ?>"/>
-<input type="hidden" name="report_name" value="<?php echo($report['report_name']); ?>"/>
+<input type="hidden" name="report_id" value="<?php echo($rInfo['report_id']); ?>"/>
 <input type="submit" value="Run Report"/>
 </div>
 </form>
