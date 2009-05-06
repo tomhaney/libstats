@@ -76,23 +76,22 @@ class ReportReturnAction extends Action {
             $param[$i] = $value["value"];
 			$i++;
 		}
-		
-		// select relevant data from db
+
+		// get the relevant data from the Report class
 		$reportFinder = new ReportFinder($db);
 		$reportCount = $reportFinder->getReportCount();
 		$reportQuestionCount = $reportFinder->getReportQuestionCount($sql, $param);
-		$reportChosen = $reportFinder->getChosenReport($report_id);
+		
+    // call the specific class of the report
+    $report_class_handle = new Report();
+    $report_class_get = $report_class_handle->get();
+    $report_info = new $report_id(); 	// declare the report class by using it's ID
+    $result['reportList'] = $report_info->info();
 
-		$reportPerform = new $reportChosen['report_class']($db);
-		if ($reportChosen['report_class'] == 'StatisticsReport') {
-			$reportResults = 0;
-		} 
-		elseif ($reportChosen['report_class'] == 'GraphReport') {
-			$reportResults = 0;
-		}
-		else {
-			$reportResults = $reportPerform->perform($sql, $param);
-		}
+		// start preparing the report for processing
+		$reportPerform = new $_REQUEST["report_id"]($db);
+		$reportResults = $reportPerform->perform($sql, $param);
+
 		$libraryFinder = new LibraryFinder($db);
 		$reportLibName = $libraryFinder->getLibraryName($library_id_post);
 		if(isset($location_id_post)){
@@ -101,9 +100,11 @@ class ReportReturnAction extends Action {
 		}
 
 		// prepare $results
-		if ($report_id == 8) {
+
+		// since a CSV report is handled differently with the headers, configure the report here
+		if ($report_id == "DataCSVReport") {
 			$result['renderer'] = 'template_csv.inc';
-        	$result['content'] = 'content/outputCSV.php';		
+			$result['content'] = 'content/outputCSV.php';		
 		}
 		$result['report_id'] = $report_id;
 		$result['date1'] = $date1;
@@ -117,7 +118,6 @@ class ReportReturnAction extends Action {
 		$result['reportCount'] = $reportCount;
 		$result['reportQuestionCount'] = $reportQuestionCount;   
 		$result['reportResults'] = $reportResults;
-		$result['reportChosen'] = $reportChosen;
 		$result['criteria'] = $criteria;
 		$result['sql'] = $sql;
 				
