@@ -19,10 +19,8 @@ You might also have to <a href="logout.do">log out</a> if the server is really c
 </p>
 <h4 style="clear: both;">Support contact information:</h4>
 <p>
-Nate Vack<br />
-Wendt Library<br />
-Email: njvack@wisc.edu<br />
-Phone: 262-0561
+<?php echo(DEV_NAME); ?><br />
+Email: <a href="mailto:<?php echo(DEV_EMAIL); ?>"><?php echo(DEV_EMAIL); ?><br />
 </p>
 
 <div id = "footer">
