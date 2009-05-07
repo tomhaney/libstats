@@ -71,7 +71,20 @@ function findLocation(libraryElementName) {
 <form name="dates" method="get" action="reportReturn.do" id="qForm">
 <div>
 Begin Date: <input type="text" name="date1" id = "date1" class = "validDate" />
-End Date: <input type="text" name="date2" id = "date2" class = "validDate" /><br /><br />
+<?php
+// if calendar widget is enabled, display button
+if (CAL_WIDGET == TRUE) {
+	echo "<button id=\"trigger1\">...</button>";
+}
+?>
+End Date: <input type="text" name="date2" id = "date2" class = "validDate" />
+<?php
+// if calendar widget is enabled, display button
+if (CAL_WIDGET == TRUE) {
+	echo "<button id=\"trigger2\">...</button>";
+}
+?>
+<br /><br />
 Library:
 
 <select id="library_id" onchange = "findLocation('library_id');" name="library_id">
@@ -100,6 +113,33 @@ Library:
 </div>
 </form>
 
+<?php
+// if calendar widget is enabled, display javascript to make it work
+if (CAL_WIDGET == TRUE) {
+?>
+<!-- this is for the calendar widget -->
+<script type="text/javascript">
+ Calendar.setup(
+  {
+   inputField  : "date1",              // ID of the input field
+   ifFormat    : "%m/%d/%Y %I:%M %p",  // the date format
+   button      : "trigger1",           // ID of the button
+   showsTime   : "true",               // show time
+   timeFormat  : "12"                  // set time to 12 hours, not 24
+  }
+ );
+
+ Calendar.setup(
+ {
+   inputField  : "date2",              // ID of the input field
+   ifFormat    : "%m/%d/%Y %I:%M %p",  // the date format
+   button      : "trigger2",           // ID of the button
+   showsTime   : "true",               // show time
+   timeFormat  : "12"                  // set time to 12 hours, not 24
+  }
+ );
+</script>
+<?php } ?>
 
 <script type = "text/javascript">
 var opts = checkCookies();
