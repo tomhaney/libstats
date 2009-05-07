@@ -42,6 +42,7 @@ $dbName = 'libstats';
 $dbUser = 'libstats';
 $dbPass = 'libstats';
 
+
 /**
  * Set the site name here
  * This will affect page titles and the like
@@ -84,6 +85,7 @@ define('DEV_PPN', 'his');
  */
 define('SITE_MAINTANENCE', false);
 
+
 /**
  * Site Maintanence Pass
  * This IP address will really be able to log in
@@ -100,6 +102,21 @@ define('DEBUG_IP', "");
  * 										 TRUE, automatically log in as Administrator skipping login screen
  */
 define('AUTO_ADMIN_LOGON', false);
+
+
+/**
+ * Calendar widget
+ * This is for enabling the DHTML Calendar. This Calendar can be obtained at
+ * 	http://www.dynarch.com/projects/calendar/ by Mihai Bazon 
+ * 	GNU Lesser General Public License
+ * 1) Download http://www.dynarch.com/static/jscalendar-1.0.zip (tested 20090507)
+ * 2) Unpack jscalendar-1.0.zip into a directory called jscalendar-1.0
+ * 	Path should be: libstats/addons/jscalendar-1.0 
+ * 3) Enable calendar widget as true
+ * @CAL_WIDGET	=	FALSE, will not display/use the calendar widget
+ * 							= TRUE, display the calendat widget
+ */
+define('CAL_WIDGET', false);
 
 
 /**
