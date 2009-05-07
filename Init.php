@@ -30,6 +30,15 @@
  */
 error_reporting(E_ALL);
 
+/*
+ * uncomment the two lines below to include/add the path to the PEAR::DB
+ * @pear_include_path	= path to the db.php file, can be found on a linux 
+ * 							system by typing "locate db.php"
+ */
+#$pear_include_path = '/usr/share/php';
+#set_include_path(get_include_path(). PATH_SEPARATOR . $pear_include_path);
+
+
 /**
  * Database connection
  * @dbHost		= host name of the database. eg: localhost, http://xxx.xxx.xxx.xxx
@@ -42,6 +51,16 @@ $dbName = 'libstats';
 $dbUser = 'libstats';
 $dbPass = 'libstats';
 
+/**
+ * LDAP Connection information.  If you want to set up LDAP authentication,
+ * fill in the information below
+ * @host		= the LDAP server
+ * @port		= 389 is the default port, 636 if you are using secure connection
+ * @baseDN		= where your users are located in the LDAP
+ */
+$ldapConfig = array ('host'		=> 'ldap.myuniversity.edu',
+					 'port'		=> '389',
+					 'baseDN'	=> 'o=myuniversity.edu');
 
 /**
  * Set the site name here
@@ -80,7 +99,7 @@ define('DEV_PPN', 'his');
  * Site Maintanence
  * Can put site in maintanence mode displaying a "Maintanence" page during upgrade, debugging or
  * maintanence
- * @SITE_MAINTANENCE = FALASE, run site as normal
+ * @SITE_MAINTANENCE = FALSE, run site as normal
  * 										 TRUE, put site in maintanence mode
  */
 define('SITE_MAINTANENCE', false);
