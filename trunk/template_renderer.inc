@@ -23,7 +23,7 @@ if (CAL_WIDGET == TRUE) {
 <script type="text/javascript" src="addons/jscalendar-1.0/calendar.js"></script>
 <script type="text/javascript" src="addons/jscalendar-1.0/lang/calendar-en.js"></script>
 <script type="text/javascript" src="addons/jscalendar-1.0/calendar-setup.js"></script>
-<? } ?>
+<?php } ?>
 </head>
 <body>
 <?php require_once('DisplayFunctions.php'); ?>
