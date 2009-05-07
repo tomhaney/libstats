@@ -16,8 +16,8 @@
 <div>
 <h4 style = "padding-top: 1em;">Need help?</h4>
 <p>If you're having trouble logging in, contact your supervisor for
-login information, or <a href = "mailto:njvack@library.wisc.edu">
-Nathan Vack</a> if that's not working out for you.
+login information, or <a href="mailto:<?php echo(DEV_EMAIL); ?>"><?php echo(DEV_NAME); ?>
+</a> if that's not working out for you.
 </p>
 </div>
 <br style = "clear: both;" />
