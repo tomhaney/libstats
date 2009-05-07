@@ -56,7 +56,7 @@ class LibraryFinder extends Finder
 		// Just add it... it should be easy ;-)
         $table = 'libraries';
 		$field_values = array(
-			'library_id' => '',
+			//'library_id' => '', // commented line out as some had issues passing NULL values
 			'full_name' => $full_name,
 			'short_name' => $short_name
 		);
