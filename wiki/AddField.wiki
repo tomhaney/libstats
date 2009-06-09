@@ -17,7 +17,7 @@ These modifications can be done in phpMyAdmin.
   # Modify admin table: Insert read types following patron types model
 
 ==Action Folder==
-  # Modify HelpAction.php - insert at line 69
+  # Modify HelpAction*.php - insert at line 69
 {{{
 $result['descRead'] =
    $helpFinder->getReadOptions($library_id_post);
