@@ -1,7 +1,6 @@
+#summary These modification will add an additional input field to your Libstats installation
 #labels Featured
-#Add Column/Field input
-
-= These modification will add an additional input field to your Libstats installation =
+=Add Field/Column input type to Libstats=
 (Based on outline and support from Erin - Thanks, Erin!) Tested on version 1.0.6 - not verified for 1.0.5.
 These instructions use “read” as a type.  This is for adding the [http://bkarrgerlich.googlepages.com/ READ scale]. You can substitute any name for "read" – just be consistent.
 ----
