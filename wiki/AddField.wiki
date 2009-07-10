@@ -164,4 +164,21 @@ if ($rInfo['help_id'] == 4 && $descReadArray != 0){
 }}}
   # Duplicate reports>ByPatronType.php & rename ByReadType.php
     * Replace all instances of “Patron/patron” with “Read/read” (watch case.)
+
+In addition, make these modifications (thanks to cgrimland for catching this):
+
+Line 27 should look something like this:
+{{{
+    $fullQuery = "SELECT COUNT(questions.question) as questions, read_types.read_type
+as readtypes
+                        FROM questions
+                        JOIN read_types ON
+                        (questions.read_type_id = read_types.read_type_id)
+                        $sql
+                        GROUP BY readtypes";
+}}}
+And line 74 should be changed to match:
+{{{
+<td>{$report["readtypes"]}</td>
+}}}
 ----
