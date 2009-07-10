@@ -167,7 +167,7 @@ if ($rInfo['help_id'] == 4 && $descReadArray != 0){
 
 In addition, make these modifications (thanks to cgrimland for catching this):
 
-  # LINES 27-32:
+    * LINES 27-32:
 {{{
     $fullQuery = "SELECT COUNT(questions.question) as questions, read_types.read_type
 as readtypes
@@ -177,7 +177,7 @@ as readtypes
                         $sql
                         GROUP BY readtypes";
 }}}
-   # LINE 74:
+    * LINE 74:
 {{{
 <td>{$report["readtypes"]}</td>
 }}}
