@@ -54,10 +54,12 @@ $dbPass = 'libstats';
 /**
  * LDAP Connection information.  If you want to set up LDAP authentication,
  * fill in the information below
+ * @ENABLED_LDAP	= whether to user LDAP authentication; default is FALSE
  * @host		= the LDAP server
  * @port		= 389 is the default port, 636 if you are using secure connection
  * @baseDN		= where your users are located in the LDAP
  */
+define('ENABLE_LDAP','false');
 $ldapConfig = array ('host'		=> 'ldap.myuniversity.edu',
 					 'port'		=> '389',
 					 'baseDN'	=> 'o=myuniversity.edu');
