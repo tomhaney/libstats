@@ -19,28 +19,28 @@ class ByTypeTime extends Report {
         * @return                                      : result of perform the SQL query
         */
        function perform($sql, $param) {
-   // don't lose the db!
-   $db = $_REQUEST['db'];
-   $this->db = $db;
+		// don't lose the db!
+		$db = $_REQUEST['db'];
+		$this->db = $db;
 
-   // gather $result
-   $fullQuery = <<<QUERYSTRING
-     SELECT COUNT(questions.question) as questions_count,
-		questions.question_type_id, question_types.question_type,
-		questions.time_spent_id, time_spent_options.time_spent,
-		time_spent_options.description
-	FROM questions
-	JOIN time_spent_options ON
-		(questions.time_spent_id = time_spent_options.time_spent_id)
-	JOIN
-		question_types ON
-		(questions.question_type_id = question_types.question_type_id) $sql
-	GROUP BY questions.question_type_id, questions.time_spent_id
+		// gather $result
+		$fullQuery = <<<QUERYSTRING
+			SELECT COUNT(questions.question) as questions_count,
+				questions.question_type_id, question_types.question_type,
+				questions.time_spent_id, time_spent_options.time_spent,
+				time_spent_options.description
+			FROM questions
+			JOIN time_spent_options ON
+				(questions.time_spent_id = time_spent_options.time_spent_id)
+			JOIN question_types ON
+				(questions.question_type_id = question_types.question_type_id) $sql
+			GROUP BY questions.question_type_id, questions.time_spent_id
 QUERYSTRING;
 
-   $result = $this->db->getAll($fullQuery, $param);
+		$result["data"] = $this->db->getAll($fullQuery, $param);
+		$result['metadata'] = array_keys($result['data'][0]);
 
-   return $result;
+		return $result;
        }
 
 
@@ -64,7 +64,7 @@ QUERYSTRING;
                }
                echo "</h3><h3>{$rInfo['reportList']['name']} from {$rInfo['date1']} through {$rInfo['date2']}- Full Report</h3>";
 
-               foreach ($rInfo['reportResults'] as $report) {
+               foreach ($rInfo['reportResults']["data"] as $report) {
                        $questiontypes[$report["question_type"]][$report["time_spent_id"]] = $report["questions_count"];
                        @$questiontypes[$report["question_type"]]["count"] += $report ["questions_count"];
                        $spent[$report["time_spent_id"]]["spent"] = $report["time_spent"];

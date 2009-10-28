@@ -21,18 +21,19 @@ class ByWeekday extends Report {
 	 */
 	function perform($sql, $param) {
 		// don't lose the db!
-    $db = $_REQUEST['db'];
-    $this->db = $db;
+		$db = $_REQUEST['db'];
+		$this->db = $db;
 
 		// gather $result
-    $fullQuery =
-			"SELECT COUNT(question) as question_count , DAYNAME(question_date) as weekday
+		$fullQuery = "SELECT COUNT(question) as question_count , DAYNAME(question_date) as weekday
 			FROM questions
 			$sql
 			GROUP BY weekday DESC
 			ORDER BY DATE_FORMAT(question_date, '%w')";
 
-    $result = $this->db->getAll($fullQuery, $param);
+		$result["data"] = $this->db->getAll($fullQuery, $param);
+		$result['metadata'] = array_keys($result['data'][0]);
+
 		return $result;
 	}
 
@@ -71,7 +72,7 @@ class ByWeekday extends Report {
 		$numberReportQuestionCount = $rInfo['reportQuestionCount'] + 0;
 
 		// loop through to display and caluculate results
-    foreach ($rInfo["reportResults"] as $report) {
+    foreach ($rInfo["reportResults"]["data"] as $report) {
 			echo "<tr>
 							<td>{$report["weekday"]}</td>
 							<td>{$report["question_count"]}</td>
