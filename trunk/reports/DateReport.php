@@ -19,19 +19,21 @@ class DateReport extends Report {
 	 * @return					: result of perform the SQL query	
 	 */
 	function perform($sql, $param) {
-    // don't lose the db!
-    $db = $_REQUEST['db'];
-    $this->db = $db;
+		// don't lose the db!
+		$db = $_REQUEST['db'];
+		$this->db = $db;
 
-    // gather $result
-    $fullQuery =
-    "SELECT COUNT(question) as question_count , DAYNAME(question_date) as weekday, DATE_FORMAT(question_date, '%m-%d-%Y') as date
-    FROM questions" .
-    $sql .
-    "GROUP BY date DESC";
+		// gather $result
+		$fullQuery =
+		"SELECT COUNT(question) as question_count , DAYNAME(question_date) as weekday, DATE_FORMAT(question_date, '%m-%d-%Y') as date
+			FROM questions" .
+			$sql .
+			"GROUP BY date DESC";
 
-    $result = $this->db->getAll($fullQuery, $param);
-    return $result;
+		$result["data"] = $this->db->getAll($fullQuery, $param);
+		$result['metadata'] = array_keys($result['data'][0]);
+
+		return $result;
 	}
 
 
@@ -69,7 +71,7 @@ class DateReport extends Report {
 		$numberReportQuestionCount = $rInfo['reportQuestionCount'] + 0;
 
 		// loop through to display and caluculate results
-    foreach ($rInfo["reportResults"] as $report) {
+    foreach ($rInfo["reportResults"]["data"] as $report) {
 			echo "<tr>
 							<td>{$report["date"]}</td>
 							<td>{$report["weekday"]}</td>

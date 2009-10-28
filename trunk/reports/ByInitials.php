@@ -21,24 +21,25 @@ class ByInitials extends Report {
 	 * @return					: result of perform the SQL query	
 	 */
 	function perform($sql, $param) {
-    // don't lose the db!
-    $db = $_REQUEST['db'];
-    $this->db = $db;
+		// don't lose the db!
+		$db = $_REQUEST['db'];
+		$this->db = $db;
 
-    // gather $result
-    $fullQuery = <<<QUERYSTRING
-      SELECT COUNT(questions.question) as questions_count, initials,
-        questions.question_format_id, question_formats.question_format,
-        question_formats.description
-      FROM questions
-      JOIN question_formats ON
-        (questions.question_format_id = question_formats.question_format_id) $sql
-      GROUP BY initials, questions.time_spent_id
+		// gather $result
+		$fullQuery = <<<QUERYSTRING
+			SELECT COUNT(questions.question) as questions_count, initials,
+				questions.question_format_id, question_formats.question_format,
+				question_formats.description
+			FROM questions
+			JOIN question_formats ON
+				(questions.question_format_id = question_formats.question_format_id) $sql
+			GROUP BY initials, questions.time_spent_id
 QUERYSTRING;
 
-    $result = $this->db->getAll($fullQuery, $param);
+		$result["data"] = $this->db->getAll($fullQuery, $param);
+		$result['metadata'] = array_keys($result['data'][0]);
 
-    return $result;
+		return $result;
 	}
 
 
@@ -53,7 +54,7 @@ QUERYSTRING;
 		}
 		echo "</h3><h3>{$rInfo['reportList']['name']} from {$rInfo['date1']} through {$rInfo['date2']}- Full Report</h3>";
 
-		foreach ($rInfo['reportResults'] as $report) {
+		foreach ($rInfo['reportResults']["data"] as $report) {
 			$initials[$report["initials"]][$report["question_format_id"]] = $report["questions_count"];
 			@$initials[$report["initials"]]["count"] += $report["questions_count"];
 			$spent[$report["question_format_id"]]["spent"] = $report["question_format"];
