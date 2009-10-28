@@ -102,7 +102,7 @@ class ReportReturnAction extends Action {
 		// prepare $results
 
 		// since a CSV report is handled differently with the headers, configure the report here
-		if ($report_id == "DataCSVReport") {
+		if (($report_id == "DataCSVReport") || (isset($_REQUEST["csv_export"]))) {
 			$result['renderer'] = 'template_csv.inc';
 			$result['content'] = 'content/outputCSV.php';		
 		}
