@@ -1,9 +1,9 @@
-#summary Brief guide for providing tips and assistance for creating new reports in LibStats.
+#summary Info for Reports 1.0.5.
 #labels Featured
 
-= Introduction =
+= Reporting in LibStats 1.0.5 =
 
-This guide is to provide tips and assistance for creating new reports in LibStats. 
+This guide is to provide tips and assistance for creating new reports in LibStats version 1.0.5. Please note that there is a difference in reporting between 1.0.5 and 1.0.6. 
 
 The guide is broken into two (2) main parts: 
  * the steps creating a new report 
