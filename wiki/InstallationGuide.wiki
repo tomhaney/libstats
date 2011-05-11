@@ -91,7 +91,7 @@ GRANT SELECT, UPDATE, DELETE, INSERT ON libstats.* TO libuser@'webserver.example
   * Create tables and data. 
 Import the libstats.sql file to your database of choice. The way you'll do this depends on the program that you're using to make changes. With the command-line program:
 {{{ 
-mysql -uroot -p libstats < libstats.sql
+mysql -u root -p libstats < libstats.sql
 }}}
 
   * With phpmyadmin or a graphical utility, choose the libstats database and then use the “import” function to create the tables by uploading the libstats.sql file which is located in the libstats folder. If you receive a sql syntax error message you many need to clean up the file before importing. Simply open the libstats.sql file in a text editor and delete the first couple lines of code up to
